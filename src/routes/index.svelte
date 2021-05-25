@@ -1,2 +1,18 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import supabase from '$lib/db';
+
+	let email;
+	let password;
+
+	async function signUp() {
+		const { user, error } = await supabase.auth.signUp({
+			email,
+			password
+		});
+	}
+</script>
+
+<input type="email" bind:value={email} placeholder="username@domain.com" />
+<input type="password" bind:value={password} placeholder="password" />
+
+<button on:click={signUp}>Submit</button>
