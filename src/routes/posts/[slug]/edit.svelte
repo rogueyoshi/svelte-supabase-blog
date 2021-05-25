@@ -30,44 +30,36 @@
 
 <script>
 	import Markdown from '$lib/Markdown.svelte';
-	import { onMount } from 'svelte';
 
 	export let post;
-
-	let title;
-	let description;
-	let content;
-
-	onMount(() => {
-		({ title, description, content } = post);
-	});
 </script>
 
 <main>
 	<div>
 		<label>
 			<div>Title</div>
-			<input bind:value={title} />
+			<input bind:value={post.title} />
 		</label>
 	</div>
 	<div>
 		<label>
 			<div>Description</div>
-			<input bind:value={description} />
+			<input bind:value={post.description} />
 		</label>
 	</div>
 	<div>
 		<label>
 			<div>Content</div>
-			<textarea bind:value={content} />
+			<textarea bind:value={post.content} />
 		</label>
 		<details>
 			<summary>Preview</summary>
-			<Markdown src={content} />
+			<h1>{post.title}</h1>
+			<h2>{post.description}</h2>
+			<article>
+				<Markdown src={post.content} />
+			</article>
 		</details>
 	</div>
 	<button>Submit</button>
 </main>
-
-<style>
-</style>

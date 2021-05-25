@@ -12,7 +12,9 @@
 	}
 </script>
 
-<input type="email" bind:value={email} placeholder="username@domain.com" />
-<input type="password" bind:value={password} placeholder="password" />
+<main>
+	<input type="email" bind:value={email} placeholder="username@domain.com" />
+	<input type="password" bind:value={password} placeholder="password" />
 
-<button on:click={signUp}>Submit</button>
+	<button on:click={signUp}>Submit</button>
+</main>
