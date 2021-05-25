@@ -13,12 +13,19 @@
 		if (!error) {
 			const post = posts[0];
 
-			return {
-				props: {
-					post
-				}
-			};
+			if (post) {
+				return {
+					props: {
+						post
+					}
+				};
+			}
 		}
+
+		return {
+			status: 404,
+			error: new Error(`${page.params.slug} not found.`)
+		};
 	}
 </script>
 
@@ -30,5 +37,6 @@
 
 {#if post}
 	<h1>{post.title}</h1>
+	<h2>{post.description}</h2>
 	<Markdown src={post.content} />
 {/if}
