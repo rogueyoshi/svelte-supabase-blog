@@ -5,10 +5,9 @@
 	 * @type {import('@sveltejs/kit').Load}
 	 */
 	export async function load({ page, fetch, session, context }) {
-		const { data: posts, error } = await supabase
-			.from('posts')
-			.select('*')
-			.eq('slug', page.params.slug);
+		const { slug } = page.params;
+
+		const { data: posts, error } = await supabase.from('posts').select('*').eq('slug', slug);
 
 		if (!error) {
 			const post = posts[0];
@@ -24,7 +23,7 @@
 
 		return {
 			status: 404,
-			error: new Error(`${page.params.slug} not found.`)
+			error: new Error(`posts/${slug} not found.`)
 		};
 	}
 </script>
@@ -35,8 +34,10 @@
 	export let post;
 </script>
 
-{#if post}
+<main>
 	<h1>{post.title}</h1>
 	<h2>{post.description}</h2>
-	<Markdown src={post.content} />
-{/if}
+	<article>
+		<Markdown src={post.content} />
+	</article>
+</main>

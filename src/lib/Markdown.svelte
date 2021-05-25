@@ -7,7 +7,7 @@
 	const md = new MarkdownIt();
 
 	// Render to an html string
-	const rendered = md.render(src);
+	$: rendered = md.render(src);
 </script>
 
 <!-- Render with the `@html` directive -->
