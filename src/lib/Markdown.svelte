@@ -5,7 +5,7 @@
 
 	let html;
 	let md;
-	$: if (md) html = md.render(src);
+	$: html = md ?? md.render(src);
 
 	onMount(async () => {
 		const MarkdownIt = (await import('markdown-it')).default;
