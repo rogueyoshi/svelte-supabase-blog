@@ -1,11 +1,16 @@
-<script context="module">
-	import MarkdownIt from 'markdown-it';
-	const md = new MarkdownIt();
-</script>
-
 <script>
+	import { onMount } from 'svelte';
+
 	export let src;
-	$: html = md.render(src);
+
+	let html;
+	let md;
+	$: if (md) html = md.render(src);
+
+	onMount(async () => {
+		const MarkdownIt = (await import('markdown-it')).default;
+		md = new MarkdownIt();
+	});
 </script>
 
 <div class="markdown-body">
