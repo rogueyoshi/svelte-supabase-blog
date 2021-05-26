@@ -1,8 +1,8 @@
 import preprocess from 'svelte-preprocess';
-import adapterNetlify from '@sveltejs/adapter-netlify';
-//import adapterStatic from '@sveltejs/adapter-static';
+//import adapterNetlify from '@sveltejs/adapter-netlify';
+import adapterStatic from '@sveltejs/adapter-static';
 
-const dev = process.env.NODE_ENV === 'development';
+//const dev = process.env.NODE_ENV === 'development';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -25,7 +25,7 @@ const config = {
 				noExternal: dev ? [] : ['@supabase/supabase-js']
 			}*/
 		},
-		adapter: adapterNetlify()
+		adapter: adapterStatic()
 	}
 };
 
