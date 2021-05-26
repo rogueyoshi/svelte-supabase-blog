@@ -18,10 +18,9 @@ const config = {
 			optimizeDeps: {
 				include: ['markdown-it']
 			}
-		}
-	},
-
-	adapter: netlify()
+		},
+		adapter: netlify()
+	}
 };
 
 export default config;
