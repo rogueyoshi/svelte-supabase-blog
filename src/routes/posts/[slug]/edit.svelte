@@ -31,16 +31,12 @@
 	<div>
 		<details>
 			<summary>Preview</summary>
-			<h1>{post.title}</h1>
-			<h2>{post.description}</h2>
-			<div class="markdown-body">
+			<div>{post.title}</div>
+			<div>{post.description}</div>
+			<article class="markdown-body">
 				<Markdown src={post.content} />
-			</div>
+			</article>
 		</details>
 	</div>
 	<button>Submit</button>
 </main>
-
-<style>
-	@import 'github-markdown-css/github-markdown.css';
-</style>

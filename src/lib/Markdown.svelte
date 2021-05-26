@@ -8,4 +8,10 @@
 	$: html = md.render(src);
 </script>
 
-{@html html}
+<div class="markdown-body">
+	{@html html}
+</div>
+
+<style>
+	@import 'github-markdown-css/github-markdown.css';
+</style>

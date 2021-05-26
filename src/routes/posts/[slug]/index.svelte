@@ -10,9 +10,9 @@
 </script>
 
 <main>
-	<h1>{post.title}</h1>
-	<h2>{post.description}</h2>
-	<article>
+	<div>{post.title}</div>
+	<div>{post.description}</div>
+	<article class="markdown-body">
 		<Markdown src={post.content} />
 	</article>
 </main>
