@@ -1,5 +1,5 @@
 <script context="module">
-	import { load } from './slug';
+	import { load } from './_slug';
 	export { load };
 </script>
 
