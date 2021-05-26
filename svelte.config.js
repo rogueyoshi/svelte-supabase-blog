@@ -16,7 +16,10 @@ const config = {
 		target: '#svelte',
 		vite: {
 			optimizeDeps: {
-				include: ['markdown-it', '@supabase/supabase-js']
+				include: ['markdown-it']
+			},
+			ssr: {
+				noExternal: dev ? [] : ['@supabase/supabase-js']
 			}
 		},
 		adapter: netlify()
